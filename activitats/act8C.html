@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 8C
+		</title>
+	</head>
+	<body>
+		<script>
+			var x, y;
+			x = prompt('Introduce la coordenada X: ', '');
+			y = prompt('Introduce la coordenada Y: ', '');
+
+			if (parseInt(x) > 0 && parseInt(y) > 0) {
+				document.write('Primer cuadrante');
+			} else {
+				if (parseInt(x) < 0 && parseInt(y) > 0) {
+					document.write('Segundo cuadrante');
+				} else {
+					if (parseInt(x) < 0 && parseInt(y) < 0) {
+						document.write('Tercer cuadrante');
+					} else {
+						document.write('Cuarto cuadrante');
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
