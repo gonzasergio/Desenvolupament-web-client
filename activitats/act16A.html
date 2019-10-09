@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 16A
+		</title>
+	</head>
+	<body>
+		<script>
+			function introdueixNums(nums){
+				for (i = 0; i < nums.length; i++){
+					let num = prompt('Introduce un numero: ');
+					nums[i] = parseInt(num);
+				}
+			}
+
+			function calculateSuma(nums){
+				let suma = 0;
+
+				for (i = 0; i < nums.length; i++){
+					suma += nums[i];
+				}
+
+				document.write('Sum: ' + suma + '<br/>');
+			}
+
+			function calculateAverage(nums){
+				let suma = 0;
+
+				for (i = 0; i < nums.length; i++){
+					suma += nums[i];
+				}
+
+				let media = suma / nums.length;
+				document.write('Average: ' + media + '<br/>');
+			}
+
+			function calculateSumaHigherThanFive(nums){
+				let suma = 0;
+
+				for (i = 0; i < nums.length; i++){
+					if (nums[i] > 5){
+						suma += nums[i];
+					}
+				}
+				document.write('Sum numbers highers than five: ' + suma + '<br/>');
+			}
+
+			function calculateHowManyNumbersHigherThanFive(nums){
+				let count = 0;
+
+				for (i = 0; i < nums.length; i++){
+					if (nums[i] > 5){
+						count++;
+					}
+				}
+				document.write('How many numbers are higher than 5? ' + count + '<br/>');
+			}
+
+			let nums;
+			nums = new Array(8);
+
+			introdueixNums(nums);
+			calculateSuma(nums);
+			calculateAverage(nums);
+			calculateSumaHigherThanFive(nums);
+			calculateHowManyNumbersHigherThanFive(nums);
+    	</script>
+	</body>
+</html>

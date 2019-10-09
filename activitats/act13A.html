@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 13A
+		</title>
+	</head>
+	<body>
+		<script>
+			function returnMinimum(num1, num2, num3) {
+				if (num1 < num2 && num1 < num3){
+					return num1;
+				} else if (num2 < num1 && num2 < num3){
+					return num2;
+				} else {
+					return num3;
+				}
+			}
+
+			let num1 = prompt('Introduce un numero: ');
+			let num2 = prompt('Introduce un numero: ');
+			let num3 = prompt('Introduce un numero: ');
+
+			let result = returnMinimum(num1, num2, num3);
+
+			document.write('El ' + result + ' es el numero mas pequeño');
+    </script>
+	</body>
+</html>

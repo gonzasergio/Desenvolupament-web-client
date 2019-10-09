@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 12G
+		</title>
+	</head>
+	<body>
+		<script>
+			let avgC1 = 0;
+			let avgC2 = 0;
+			let avgC3 = 0;
+			let sumC1 = 0;
+			let sumC2 = 0;
+			let sumC3 = 0;
+
+			for (i = 0; i < 5; i++) {
+				let nota = parseInt(prompt('Introduce una nota de la clase A'));
+				sumC1 += nota;
+			}
+
+			avgC1 = sumC1 / 5;
+
+			for (i = 0; i < 6; i++) {
+				let nota = parseInt(prompt('Introduce una nota de la clase B'));
+				sumC2 += nota;
+			}
+
+			avgC2 = sumC2 / 6;
+
+			for (i = 0; i < 11; i++) {
+				let nota = parseInt(prompt('Introduce una nota de la clase C'));
+				sumC3 += nota;
+			}
+
+			avgC3 = sumC3 / 11;
+
+			document.write("Media clase A: " + avgC1 + "<br/>");
+			document.write("Media clase B: " + avgC2 + "<br/>");
+			document.write("Media clase C: " + avgC3 + "<br/>");
+
+			if (avgC1 > avgC2 && avgC1 > avgC3){
+				document.write("La clase con mejor media es la A");
+			} else if (avgC2 > avgC1 && avgC2 > avgC3){
+				document.write("La clase con mejor media es la B");
+			} else {
+				document.write("La clase con mejor media es la C");
+			}
+    </script>
+	</body>
+</html>
