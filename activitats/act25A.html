@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 25A
+		</title>
+	</head>
+	<body>
+		<script> 
+		    function checkInfo(){
+		      	let a = document.getElementById('nom').value;
+		      	let b = document.getElementById('email').value;
+		      	let c = document.getElementById('comments').value;
+				
+				alert("Nombre: " + a + "\nEmail: " + b + "\nComentarios: " + c);
+		    } 
+		</script> 
+    	<form>
+			Nombre<br/>
+			<textarea id="nom" rows="1" cols="30" ></textarea>
+			<br/>
+			Email<br/>
+			<textarea id="email" rows="1" cols="50" ></textarea>
+			<br/>
+			Comentarios<br/>
+			<textarea id="comments" rows="4" cols="50" ></textarea>
+			<br/>
+			<input type="button" value="Check" onClick="checkInfo()">
+		</form>
+	</body>
+</html>

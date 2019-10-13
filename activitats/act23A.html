@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 23A
+		</title>
+	</head>
+	<body>
+		<script> 
+		    function showSelected(){
+		      	let a = document.getElementById('football');
+		      	let b = document.getElementById('tennis');
+		      	let c = document.getElementById('karate');
+				
+				if (a.checked){
+					if (b.checked){
+						if (c.checked){
+							alert(a.id + ", " + b.id + ", " + c.id);
+						} else {
+							alert(a.id + ", " + b.id);
+						}
+					} else if (c.checked){
+						alert(a.id + ", " + c.id);
+					} else {
+						alert(a.id);
+					}
+				} else if (b.checked){
+					if (c.checked){
+						alert(b.id + ", " + c.id);
+					} else {
+						alert(b.id);
+					}
+				} else{
+					alert(c.id);
+				}
+		    } 
+		</script> 
+    	<form>
+			<input type="checkbox" id="football">Football
+			<br>
+			<input type="checkbox" id="tennis">Tennis
+			<br>
+			<input type="checkbox" id="karate">Karate
+			<br>
+			<button type="button" onClick="showSelected()">Show</button>
+		</form>
+	</body>
+</html>
