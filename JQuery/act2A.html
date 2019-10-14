@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 2A
+		</title>
+		<script src="jquery.js">
+		</script>
+	</head>
+	<body>
+		<script>
+			$(document).ready(function(){
+		        $("#fila1").click(function(){
+		          	$(this).css("background-color", "red")
+		        });
+		        $("#fila2").click(function(){
+		          	$(this).css("background-color", "blue")
+		        });
+		     });
+		</script>
+		<table border="1">
+			<tr id="fila1">
+				<td>Fila 1</td>
+			</tr>
+			<tr id="fila2">
+				<td>Fila 2</td>
+			</tr>
+		</table>
+	</body>
+</html>
