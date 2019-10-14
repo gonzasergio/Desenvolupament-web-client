@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 12E
+		</title>
+	</head>
+	<body>
+		<script>
+			let equilater = 0;
+			let isosceles = 0;
+			let escaleno = 0;
+
+			for (i = 0; i < 3; i++) {
+				let cateto1 = prompt('Introduce la medida del cateto 1');
+				let cateto2 = prompt('Introduce la medida del cateto 2');
+				let cateto3 = prompt('Introduce la medida del cateto 3');
+
+				if (cateto1 == cateto2 && cateto1 == cateto3){
+					document.write("El triangulo es equilatero<br/>");
+					equilater++;
+				} else if (cateto1 == cateto2 && cateto1 != cateto3 || cateto1 != cateto2 && cateto1 == cateto3 || cateto2 == cateto3 && cateto2 != cateto1){
+					document.write("El triangulo es isosceles<br/>");
+					isosceles++;
+				} else {
+					document.write("El triangulo es escaleno<br/>");
+					escaleno++;
+				}
+			}
+
+			if (equilater > isosceles && equilater > escaleno){
+				document.write("Hay mas triangulos equilateros");
+			} else if (isosceles > equilater && isosceles > escaleno){
+				document.write("Hay mas triangulos isosceles");
+			} else {
+				document.write("Hay mas triangulos escalenos");
+			}
+    </script>
+	</body>
+</html>

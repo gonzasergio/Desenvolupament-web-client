@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 16B
+		</title>
+	</head>
+	<body>
+		<script>
+			function introdueixNums(nums){
+				for (i = 0; i < 2; i++){
+					let num = prompt('Introduce un numero: ');
+					nums[i] = parseInt(num);
+				}
+			}
+
+			function omplirArrayNums(nums){
+				for (i = 2; i < nums.length; i++){
+					if (i % 2 == 0){
+						nums[i] = nums[0];
+					} else {
+						nums[i] = nums[1];
+					}
+				}
+			}
+
+			function imprimeixArray(nums){
+
+				for (i = 0; i < nums.length; i++){
+					document.write(nums[i] + ' ');
+				}
+			}
+
+			function calculateSuma(nums){
+				let suma = 0;
+
+				for (i = 0; i < nums.length; i++){
+					suma += nums[i];
+				}
+
+				document.write('<br/>Sum: ' + suma);
+			}
+
+			let nums;
+			let numsLength = 8;
+			nums = new Array(numsLength);
+
+			introdueixNums(nums);
+			omplirArrayNums(nums);
+			imprimeixArray(nums);
+			calculateSuma(nums);
+    	</script>
+	</body>
+</html>

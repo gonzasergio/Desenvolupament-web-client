@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 11A
+		</title>
+	</head>
+	<body>
+		<script>
+			let suma = 0;
+			let number = 0;
+			
+			do {
+
+				suma += parseInt(number);
+				number = parseInt(prompt('Introduce un numero: '));
+
+			} while (number != 9999);
+
+
+			if (suma > 0){
+
+				document.write("La suma dona un resultat positiu (" + suma + ")" );
+
+			} else if (suma < 0){
+
+				document.write("La suma dona un resultat negatiu (" + suma + ")");
+
+			} else {
+
+				document.write("La suma dona 0");
+
+			}
+		</script>
+	</body>
+</html>

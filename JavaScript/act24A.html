@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 24A
+		</title>
+	</head>
+	<body>
+		<script> 
+		    function compuebaEdad(){
+		      	let a = document.getElementById('older');
+		      	let b = document.getElementById('younger');
+				
+				if (a.checked){
+					alert("Puedes entrar");
+				} else if (b.checked){
+					alert("No puedes entrar");
+				}
+		    } 
+		</script> 
+    	<form>
+			<input type="radio" id="older" name="age">Older than 18
+			<br/>
+			<input type="radio" id="younger" name="age">Younger than 18
+			<br/>
+			<input type="button" value="Mostrar" onClick="compuebaEdad()">
+		</form>
+	</body>
+</html>

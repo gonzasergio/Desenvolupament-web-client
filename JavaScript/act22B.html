@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 22B
+		</title>
+	</head>
+	<body>
+		<script> 
+		    function calculatePrice(){
+		      	let a = document.getElementById('select1');
+		      	let b = document.getElementById('select2');
+		      	let c = document.getElementById('select3');
+				document.getElementById('text1').value = parseInt(a.options[a.selectedIndex].value) + parseInt(b.options[b.selectedIndex].value) + parseInt(c.options[c.selectedIndex].value);
+		    }
+		</script> 
+    	<form>
+			<select id="select1">
+				<option value="400">Intel I3</option>
+				<option value="600">Intel I5</option>
+				<option value="800">Intel I7</option>
+			</select>
+			<select id="select2">
+				<option value="250">Samsung 20'</option>
+				<option value="350">Samsung 22'</option>
+				<option value="550">Samsung 26'</option>
+			</select>
+			<select id="select3">
+				<option value="300">500 Gb</option>
+				<option value="440">1 Tb</option>
+				<option value="500">3 Tb</option>
+			</select>
+			<input type="button" onclick="calculatePrice()" value="Calcula">
+			<br>
+	    	Coste:<input type="text" id="text1"><br>
+		</form>
+	</body>
+</html>

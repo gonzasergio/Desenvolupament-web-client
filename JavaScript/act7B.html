@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>
+			actividad 7B
+		</title>
+	</head>
+	<body>
+		<script>
+			var num1 = prompt('Introduce un numero: ', '');
+			var num2 = prompt('Introduce un numero: ', '');
+			var num3 = prompt('Introduce un numero: ', '');
+			var menor;
+
+			if (num1 < num2 && num1 < num3) {
+				menor = num1;
+			} else {
+				if (num2 < num1 && num2 < num3){
+					menor = num2;
+				} else {
+					menor = num3;
+				}
+			}
+			document.write('Menor: ' + menor);
+		</script>
+	</body>
+</html>

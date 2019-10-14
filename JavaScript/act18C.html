@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 18C
+		</title>
+	</head>
+	<body>
+		<script>
+			let frase = prompt('Escribe una frase:');
+
+		    function compruebaPalindromo(frase){
+		    	frase = frase.toLowerCase();
+		    	fraseReverse = frase.split("").reverse().toString();
+
+		      	for (var i = 0; i < fraseReverse.length - 1; i++) {
+		        	fraseReverse = fraseReverse.replace(",","");
+		      	}
+
+		      	if (frase == fraseReverse){
+		        	document.write("Tu frase es un Palindromo");
+		      	} else{
+		        	document.write("Tu frase no es un Palindromo");
+		      	}
+		    }
+
+		    compruebaPalindromo(frase);
+    	</script>
+	</body>
+</html>

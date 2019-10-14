@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            activitat 29A
+        </title>
+    </head>
+    <body>
+        <script> 
+            let myWindow;
+            function openWindow() { 
+                myWindow = window.open('','','status=yes,width=600,height=300,menubar=yes'); 
+            }
+            function closeWindow() { 
+                myWindow.close();
+            }
+        </script> 
+        <button type="button" onClick="openWindow()">Crea</button>
+        <button type="button" onClick="closeWindow()">Cierra</button>
+    </body>
+</html>

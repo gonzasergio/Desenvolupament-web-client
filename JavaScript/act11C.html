@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 11C
+		</title>
+	</head>
+	<body>
+		<script>
+			let accountId;
+			let i = 0;
+			let sum = 0;
+
+	        do {
+	        	accountId = prompt('Introduce el numero de cuenta: ');
+	            let name = prompt('Introduce el nombre: ');
+	            let money = parseInt(prompt('Introduce el dinero: '));
+
+	            document.write(name + " es el propietario de la cuenta " + accountId + " con " + money + "€<br/>");
+	            sum += money;
+
+	            i++;
+
+	        } while (i < 2);
+
+	        document.write("La suma de todos los bancos es de "  + sum + " €");
+    </script>
+	</body>
+</html>

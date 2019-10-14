@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 14B
+		</title>
+		<script>
+			function Person(name, age){
+				this.name=name;
+				this.age=age;
+			}
+
+			function Company(name, topAgeWorkers){
+				this.name=name;
+				this.topAgeWorkers=topAgeWorkers;
+			}
+		</script>
+	</head>
+	<body>
+		<script>
+			let trabajador1;
+			let trabajador2;
+			let compañia1;
+			let countAbleWorkers = 0;
+
+			trabajador1 = new Person('Sergio', 18);
+			trabajador2 = new Person('Josep', 45);
+			compañia1 = new Company('Compañia', 30);
+
+			if (trabajador1.age < compañia1.topAgeWorkers) countAbleWorkers++;
+			if (trabajador2.age < compañia1.topAgeWorkers) countAbleWorkers++;
+
+			document.write(countAbleWorkers);
+    	</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 30B
+		</title>
+	</head>
+	<body>
+		<script> 
+	        let myWindow;
+	        function openWindow() { 
+	            let w = screen.availWidth/2;
+	            let h = screen.availHeight
+	            myWindow = window.open('','','status=yes,width='+w+',height='+h+',menubar=yes'); 
+	        }
+	        function closeWindow() { 
+	            myWindow.close();
+	        }
+	    </script> 
+
+	    <button type="button" onClick="openWindow()" >Crea</button>
+	    <button type="button" onClick="closeWindow()" >Cierra</button>
+	</body>
+</html>

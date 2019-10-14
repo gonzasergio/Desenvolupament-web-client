@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 22C
+		</title>
+	</head>
+	<body>
+		<script> 
+		    function calculatePrice(){
+		      	let a = document.getElementById('select1');
+		      	let b = document.getElementById('quantitat');
+				document.getElementById('text1').value = parseInt(a.options[a.selectedIndex].value) * b.value;
+		    } 
+		</script> 
+    	<form>
+			<select id="select1">
+				<option value="6">Pepperoni </option>
+				<option value="5">Quatro Formaggi</option>
+				<option value="4">Procciputo </option>
+			</select>
+			<br>
+			Quantitat:<input type="text" id="quantitat">
+			<input type="button" onclick="calculatePrice()" value="Calcula">
+	    	<br>
+			Preu:<input type="text" id="text1"><br>
+		</form>
+	</body>
+</html>
