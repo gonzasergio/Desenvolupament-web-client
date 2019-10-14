@@ -1,0 +1,60 @@
+header {
+	background-color: #F6F6F6;
+	border: 1px solid #D3D3D3;
+	padding: 10px;
+}
+
+h3 {
+	margin: 0;
+}
+
+.informacion {
+	border-left: 1px solid #D3D3D3;
+	border-right: 1px solid #D3D3D3;
+	padding: 10px;
+}
+
+.formulario {
+	border-top: 1px solid #D3D3D3;
+	border-left: 1px solid #D3D3D3;
+	border-right: 1px solid #D3D3D3;
+	padding: 10px;
+}
+
+.botones {
+	background-color: #E6E6E6;
+	border: 1px solid #D3D3D3;
+	padding: 10px;
+}
+
+button {
+	color: white;
+	padding: 12;
+	margin-right: 2;
+	border-radius: 8%;
+	border: 0
+}
+
+button:hover {
+	transform: scale(1.05);
+}
+
+.insertar {
+	background: #0073FE
+}
+
+.eliminar {
+	background: red
+}
+
+.ordenar {
+	background: orange
+}
+
+.buscar {
+	background: green
+}
+
+.actualizar {
+	background: skyblue
+}

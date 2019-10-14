@@ -1,0 +1,156 @@
+<html>
+	<head>
+		<title>
+			Llista Excursionistes
+		</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="llistaExcursionistes.css">
+		<script src="llistaExcursionistes.js"></script>
+		<script>
+			let errorEmail = "Correo no valido";
+			let errorExp = "Experiencia no valida";
+
+			function imprimeMatriz(){
+				let txt="";
+				for(let i = 0; i < personas.length; i++){
+					let info = personas[i].informar();
+					txt = txt + "<li>" + info + "</li>";
+				}
+				let u = document.getElementById("lista");
+				u.innerHTML = txt;
+				var n = document.getElementById("numExcursionistes");
+				n.innerText = "Hi ha " + personas.length + " excursionistes";
+			}
+
+		    function crearPersona(){
+		    	let nom = document.getElementById('nom').value;
+		    	let email = document.getElementById('email').value;
+		    	let edad = document.getElementById('edad').value;
+		    	let experiencia = document.getElementById('experiencia').value;
+			    let persona = new Persona(nom, email, edad, experiencia);
+			    return persona;
+		    }
+
+		    function insertarIn(){
+		    	if (compruebaEmail()){
+		    		if (compruebaExp()){
+			    		let persona = crearPersona();
+						personas.unshift(persona);
+						imprimeMatriz();
+		    		} else {
+		    			alert(errorExp);
+		    		}
+				} else {
+					alert(errorEmail);
+				}
+		    }
+
+		    function insertarFi(){
+		    	if (compruebaEmail()){
+		    		if (compruebaExp()){
+			    		let persona = crearPersona();
+						personas.push(persona);
+						imprimeMatriz();
+		    		} else {
+		    			alert(errorExp);
+		    		}
+				} else {
+					alert(errorEmail);
+				}
+		    }
+
+		    function borrarIn(){
+				personas.shift();
+				imprimeMatriz();
+			}
+
+			function borrarFi(){
+				personas.pop();
+				imprimeMatriz();
+			}
+
+			function ordenarAsc(){
+				personas.sort(function(a,b){ return (a.edad>b.edad)?1:-1;});
+				imprimeMatriz();
+			}
+
+			function ordenarDesc(){
+				personas.sort(function(a,b){ return (a.edad>b.edad)?-1:1;});
+				imprimeMatriz();
+			}
+
+			function cercaExp(){
+				let exp = document.getElementById('experiencia').value;
+				let txt="";
+				for(let i = 0; i < personas.length; i++){
+					if (personas[i].experiencia == exp){
+						let info = personas[i].informar();
+						txt = txt + "<li>" + info + "</li>";
+					}
+				}
+				let u = document.getElementById("lista");
+				u.innerHTML = txt;
+			}
+
+			function compruebaEmail(){
+				let correo = document.getElementById('email').value;
+				if (/^([a-zA-Z0-9])+\@(([a-zA-Z0-9])+\.)+([a-zA-Z0-9]{2,4})+$/.test(correo)){
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			function compruebaExp(){
+				let exp = document.getElementById('experiencia').value;
+				if (exp == '1' || exp == '2' || exp == '3' || exp == '4' || exp == '5'){
+			    	return true;
+		    	} else {
+		    		return false;
+		    	}
+			}
+		</script>
+	</head>
+	<body>
+		<main>
+			<header>
+				<h3>Informació Excursionistes</h3>
+			</header>
+			<section class="informacion">
+				<span id="numExcursionistes"></span>
+				<ul id="lista">
+					
+				</ul>
+			</section>
+			<section class="formulario">
+				<form>
+					Nom <input type="text" id="nom">
+					<br/>
+					Email <input type="text" id="email">
+					<br/>
+					Edad <input type="text" id="edad">
+					<br/>
+					Experiencia (1-5) <input type="text" id="experiencia">
+				</form>
+			</section>
+			<section class="botones">
+				<button type="button" class="insertar" onclick="insertarIn()">INSERTAR INICI</button>
+				<button type="button" class="insertar" onclick="insertarFi()">INSERTAR FI</button>
+				<button type="button" class="eliminar" onclick="borrarIn()">ELIMINAR INICI</button>
+				<button type="button" class="eliminar" onclick="borrarFi()">ELIMINAR FI</button>
+				<button type="button" class="ordenar" onclick="ordenarAsc()">ORDENAR EDAD ASC</button>
+				<button type="button" class="ordenar" onclick="ordenarDesc()">ORDENAR EDAD DESC</button>
+				<button type="button" class="buscar" onclick="cercaExp()">CERCAR PER EXPERIENCIA</button>
+				<button type="button" class="actualizar" onclick="imprimeMatriz()">ACTUALITZA LLISTA</button>
+			</section>
+		</main>
+		<script>
+			let personas = [];
+			personas[0]= new Persona("Sergio", "sgv721@gmail.com", 18, 4);
+			personas[1]= new Persona("Josep", "joliver@gmail.com", 18, 5);
+			personas[2]= new Persona("Joan Andreu", "jandreu@gmail.com", 19, 2);
+			personas[3]= new Persona("Joan Barceló", "jbarcelo@gmail.com", 19, 3);
+			imprimeMatriz();
+		</script>
+	</body>
+</html>
