@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>Cercadors</title>
+		<style>
+			body{
+				margin: 0
+			}
+
+			div{
+				border: 1px dotted black;
+				padding: 10px;
+				margin: 10px
+			}
+		</style>
+		<script src="jquery.js"></script>
+	</head>
+	<body>
+		<div>
+			<div id="homes">
+				<p id="sergio" class="exp4">Sergio, sgv721@gmail.com, <b>18</b>, 4</p>
+				<p id="josep" class="exp5">Josep, joliver@gmail.com, <b>18</b>, 5</p>
+			</div>
+
+			<div id="dones">
+				<p id="jasito" class="exp2">Jasito, jasito@gmail.com, <b>19</b>, 2</p>
+				<p id="joan" class="exp3">Joan, joan@gmail.com, <b>19</b>, 3</p>
+			</div>
+		</div>
+		<input type="text" id="text1"/>
+		<button type="button" id="b1">Cercar</button>
+		<input type="text" id="text2"/>
+		<button type="button" id="b2">Cercar</button>
+		<input type="text" id="text3"/>
+		<button type="button" id="b3">Cercar</button>
+		<script>
+			$(document).ready(function(){
+		      	$("#b1").click(function(){
+		        	$("div, p, b").css("background-color","white");
+		        	let cerca = $("#text1").val();
+		        	$("#" + cerca).css("background-color","red");
+		      	});
+		      	$("#b2").click(function(){
+		        	$("div, p, b").css("background-color","white");
+		        	let cerca = $("#text2").val();
+		        	$("." + cerca).css("background-color","red");
+		      	});
+		      	$("#b3").click(function(){
+		        	$("div, p, b").css("background-color","white");
+		        	let cerca = $("#text3").val();
+		        	$(cerca).css("background-color","red");
+		      	});
+		    });
+		</script>
+	</body>
+</html>
