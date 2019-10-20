@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 8A
+    </title>
+    <style>
+      table {
+        border: 1px solid black;
+      }
+      td {
+        border: 1px solid black;
+      }
+
+      .style1 {
+        font-size: 12px;
+        background-color: aquamarine;
+      }
+
+      .style2 {
+        font-size: 18px;
+        background-color: blue;
+      }
+    </style>
+		<script src="jquery.js">
+		</script>
+	</head>
+	<body>
+		<script>
+			$(document).ready(function(){
+        $("#b1").click(function(){
+            $("thead").addClass("style2");
+            $("tbody").addClass("style1");
+        });
+        $("#b2").click(function(){
+            $("thead").removeClass("style2");
+            $("tbody").removeClass("style1");
+        });
+      });
+		</script>
+		<table>
+      <thead>
+          <tr>
+            <td>Hola</td>
+            <td>Hola</td>
+            <td>Hola</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>Hola</td>
+            <td>Hola</td>
+            <td>Hola</td>
+          </tr>
+      </tbody>
+    </table>
+    <button type="button" id="b1">Vincular</button>
+    <button type="button" id="b2">Desvincular</button>
+	</body>
+</html>

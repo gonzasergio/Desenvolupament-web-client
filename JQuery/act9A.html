@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 9A
+    </title>
+		<script src="jquery.js">
+		</script>
+	</head>
+	<body>
+		<script>
+			$(document).ready(function(){
+        $("#b1").click(function(){
+            alert($("head").html());
+        });
+        $("#b2").click(function(){
+          alert($("body").html());
+        });
+      });
+		</script>
+		<button id="b1">Show head</button>
+    <button id="b2">Show body</button>
+	</body>
+</html>
