@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 12A
+    </title>
+    <style>
+      table {
+        border: 1px solid black;
+      }
+
+      td {
+        border: 1px solid black;
+        background-color: aquamarine;
+      }
+    </style>
+		<script src="jquery.js">
+		</script>
+	</head>
+	<body>
+		<script>
+			$(document).ready(function(){
+        $("td").hover(enterMouse,exitMouse);;
+      });
+
+      function enterMouse() {
+        $(this).css("background-color", "blue");
+      }
+
+      function exitMouse() {
+        $(this).css("background-color", "aquamarine");
+      }
+		</script>
+    <table>
+      <tr>
+        <td>col1</td>
+        <td>col2</td>
+      </tr>
+      <tr>
+        <td>col1</td>
+        <td>col2</td>
+      </tr>
+    </table>
+	</body>
+</html>
