@@ -38,23 +38,3 @@ button {
 button:hover {
 	transform: scale(1.05);
 }
-
-.insertar {
-	background: #0073FE
-}
-
-.eliminar {
-	background: red
-}
-
-.ordenar {
-	background: orange
-}
-
-.buscar {
-	background: green
-}
-
-.actualizar {
-	background: skyblue
-}
