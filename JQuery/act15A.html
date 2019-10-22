@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			actividad 15A
+    </title>
+    <style>
+      div {
+        width: 800px;
+        height: 70px;
+        background-color: orange;
+        text-align: center;
+        color: white;
+      }
+    </style>
+		<script src="jquery.js"></script>
+	</head>
+	<body>
+		<script>
+			$(document).ready(function(){
+        $("div").dblclick(function(){
+          $(this).css("width", "250px");
+          $(this).css("height", "250px");
+        });
+      });
+    </script>
+    <div><h1>Doble click</h1></div>
+	</body>
+</html>

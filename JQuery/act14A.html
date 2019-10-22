@@ -5,10 +5,8 @@
 			actividad 14A
     </title>
     <style>
-      div {
-        width: 200px;
-        height: 200px;
-        background-color: red;
+      button {
+        background-color: skyblue;
       }
     </style>
 		<script src="jquery.js">
@@ -17,15 +15,16 @@
 	<body>
 		<script>
 			$(document).ready(function(){
-        $("div").mousemove(function(event){
-          $("div").text(event.pageX + ", " + event.pageY);
+        $("button").mouseup(function(event){
+          $(this).css("background-color", "skyblue");
         });
 
-        $("div").mouseleave(function(){
-          $("div").text("El raton no se encuentra en el div");
+        $("button").mousedown(function(event){
+          $(this).css("background-color", "red");
         });
       });
     </script>
-    <div>El raton no se encuentra en el div</div>
+    <button type="button">Boton 1</button>
+    <button type="button">Boton 2</button>
 	</body>
 </html>
