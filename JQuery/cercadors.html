@@ -17,12 +17,12 @@
 	<body>
 		<div>
 			<div id="homes">
-				<p id="sergio" class="exp4">Sergio, sgv721@gmail.com, <b>18</b>, 4</p>
+				<p id="sergio" class="exp4">Sergio, sgv721@gmail.com, <b>19</b>, 4</p>
 				<p id="josep" class="exp5">Josep, joliver@gmail.com, <b>18</b>, 5</p>
 			</div>
 
 			<div id="dones">
-				<p id="jasito" class="exp2">Jasito, jasito@gmail.com, <b>19</b>, 2</p>
+				<p id="jasito" class="exp2">Jasito, jasito@gmail.com, <b>18</b>, 2</p>
 				<p id="joan" class="exp3">Joan, joan@gmail.com, <b>19</b>, 3</p>
 			</div>
 		</div>
@@ -31,27 +31,59 @@
 		</br>
 		CLASS: <input type="text" id="text2"/>
 		<button type="button" id="b2">Cercar</button>
-	</br>
+		</br>
 		TAG: <input type="text" id="text3"/>
 		<button type="button" id="b3">Cercar</button>
+		</br>
+		<button type="button" id="b4">Mayor Edad Homes</button>
+		</br>
+		<button type="button" id="b5">Mayor Edad Dones</button>
 		<script>
 			$(document).ready(function(){
-		      	$("#b1").click(function(){
-		        	$("div, p, b").css("background-color","white");
-		        	let cerca = $("#text1").val();
-		        	$("#" + cerca).css("background-color","red");
-		      	});
-		      	$("#b2").click(function(){
-		        	$("div, p, b").css("background-color","white");
-		        	let cerca = $("#text2").val();
-		        	$("." + cerca).css("background-color","red");
-		      	});
-		      	$("#b3").click(function(){
-		        	$("div, p, b").css("background-color","white");
-		        	let cerca = $("#text3").val();
-		        	$(cerca).css("background-color","red");
-		      	});
-		    });
+				$("#b1").click(function(){
+					$("div, p, b").css("background-color","white");
+					let cerca = $("#text1").val();
+					$("#" + cerca).css("background-color","red");
+				});
+				$("#b2").click(function(){
+					$("div, p, b").css("background-color","white");
+					let cerca = $("#text2").val();
+					$("." + cerca).css("background-color","red");
+				});
+				$("#b3").click(function(){
+					$("div, p, b").css("background-color","white");
+					let cerca = $("#text3").val();
+					$(cerca).css("background-color","red");
+				});
+				$("#b4").click(function(){
+					let menMax = 0;
+          let p;
+
+					$("#homes").children("p").each( function () {
+						age = parseInt($(this).children("b").text());
+						if (age > menMax) {
+								menMax = age;
+								p = $(this);
+						}
+					});
+
+					p.css("background-color","red");
+				});
+				$("#b5").click(function(){
+					let womanMax = 0;
+          let p;
+
+					$("#dones").children("p").each( function () {
+						age = parseInt($(this).children("b").text());
+						if (age > womanMax) {
+								womanMax = age;
+								p = $(this);
+						}
+					});
+
+					p.css("background-color","red");
+				});
+			});
 		</script>
 	</body>
 </html>

@@ -5,25 +5,27 @@
 			actividad 15A
     </title>
     <style>
-      div {
+      .bg{
+        background: orange;
         width: 800px;
         height: 70px;
-        background-color: orange;
-        text-align: center;
-        color: white;
+      }
+      .bg1{
+        background: orange;
+        width: 250px;
+        height: 250px;
       }
     </style>
 		<script src="jquery.js"></script>
 	</head>
 	<body>
 		<script>
-			$(document).ready(function(){
+      $(document).ready(function() {
         $("div").dblclick(function(){
-          $(this).css("width", "250px");
-          $(this).css("height", "250px");
+          $(this).toggleClass("bg1");
         });
       });
     </script>
-    <div><h1>Doble click</h1></div>
+    <div class="bg"><h1>Doble click</h1></div>
 	</body>
 </html>
