@@ -1,0 +1,25 @@
+<html>
+<head>
+    <script src="jquery.js"></script>
+    <title>act 24A</title>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $("#b1").click(function(){
+                $("#inserta").load('texto1.txt');
+            });
+
+            $("#b2").click(function(){
+                $("#inserta").load('texto2.txt');
+            });
+        });
+    </script>
+
+    <div>
+        <p id="inserta">Aqui se cargara el texto</p>
+    </div>
+    <button id="b1">Texto 1</button>
+    <button id="b2">Texto 2</button>
+</body>
+</html>

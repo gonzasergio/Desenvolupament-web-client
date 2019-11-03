@@ -1,7 +1,7 @@
 <html>
   <head>
     <script src="jquery.js"></script>
-    <title>Act18.a</title>
+    <title>act 18A</title>
     <style>
 
     </style>
@@ -9,31 +9,30 @@
   <body>
     <script>
       $(document).ready(function(){
-        var numItems=0;
+        let numItems=0;
+
         $("#b1").click(function(){
-          var block = $("<div/>",{id: 'div_' + numItems});
-          var blockId = "#div_"+numItems;
-          var txt = $("<input/>",{type:'text',id:'input_'+numItems,value:numItems});
-          var b = $("<button/>", {text: 'REMOVE '+numItems, id: 'btn_'+numItems, click: function () {
-              $(blockId).remove(); }
-        });
-          var br = $("</br>");
+          let block = $('<div id="div_'+ numItems +'"/>');
+          let blockId = "#div_"+numItems;
+          let txt = $('<input type="text" id="text_' + numItems + '" value="' + numItems + '"/>');
+          let b = $("<button/>", {text: 'REMOVE '+numItems, id: 'btn_'+numItems, click: function () { $(blockId).remove(); } });
+          let br = $("</br>");
+
           block.append(txt);
           block.append(b);
           block.append(br);
           $("#myForm").append(block);
           numItems++;
         });
+
         $("#b2").click(function(){
-        $("#myForm").empty();
-        numItems = 0;
+          $("#myForm").empty();
+          numItems = 0;
         });
       });
     </script>
-    <h1>Lista:</h1>
     <form id="myForm">
     </form>
-    <hr/>
     <div>
       <button id="b1">ADD ITEM</button>
       <button id="b2">REMOVE ALL</button>

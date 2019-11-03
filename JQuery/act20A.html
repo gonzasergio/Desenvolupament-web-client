@@ -1,0 +1,30 @@
+<html>
+<head>
+    <script src="jquery.js"></script>
+    <title>act 20A</title>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $("div").click(function(){
+                $(this).fadeOut("slow", function(){desvanece()});
+            });
+
+            function desvanece(){
+                $("div").fadeOut("slow");
+            }
+        });
+    </script>
+
+    <div id="div1">
+        <p>Parrafo 1 Div 1</p>
+        <p>Parrafo 2 Div 1</p>
+        <p>Parrafo 3 Div 1</p>
+    </div>
+    <div id="div2">
+        <p>Parrafo 1 Div 2</p>
+        <p>Parrafo 2 Div 2</p>
+        <p>Parrafo 3 Div 2</p>
+    </div>
+</body>
+</html> 

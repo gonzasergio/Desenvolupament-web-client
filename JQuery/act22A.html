@@ -1,0 +1,32 @@
+<html>
+<head>
+    <script src="jquery.js"></script>
+    <title>act 22A</title>
+    <style>
+        table {
+            border: 1px solid black
+        }
+
+        td {
+            border: 1px solid black
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                let x = $(this).index("button");
+                $("img").eq(x).toggle("slow");
+            });
+        });
+    </script>
+
+    <table>
+        <tr>
+            <td><img src="jasito.jpg"><button>Visibilidad</button></td>
+            <td><img src="jasito.jpg"><button>Visibilidad</button></td>
+        </tr>
+    </table>
+</body>
+</html>

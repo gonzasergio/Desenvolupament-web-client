@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script type="text/javascript" src="jquery.js"></script>
+    <title>act 23A</title>
+</head>
+<body>
+    <script>
+        $(document).ready(function() {
+            $("a").each(resalta);
+        });
+
+        function resalta() {
+            if ($(this).attr("href").indexOf(".es") != -1) {
+                $(this).css("color", "red");
+            }
+        } 
+    </script>
+
+    <ul>
+        <li><a href="https://www.google.com/">Google</a></li>
+        <li><a href="https://www.eldiario.es/">El Diario</a></li>
+        <li><a href="http://www.iesmanacor.cat/">Ies Manacor</a></li>
+        <li><a href="http://www.rtve.es/">RTVE</a></li>
+    </ul>
+</body>
+</html>
