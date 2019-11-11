@@ -10,9 +10,9 @@
         $(document).ready(function(){
             nivells($("#nivells"));
             $("#nivells").change(function(){
-                $('#excursionistes p').remove();
-                let nivell = $(this).children("option:selected").attr('id');
-                excursionistes(nivell, $("#excursionistes"));
+                let nivell = $("#nivells").children("option:selected").attr('id');
+                $('#excursionistes').empty();
+                excursionistes('nivell', nivell, $("#excursionistes"));
             });
         })
     </script>
@@ -20,7 +20,9 @@
         <select id="nivells">
             <option>Select</option>
         </select>
+        <select id="excursionistes">
+            <option>Select</option>
+        </select>
     </form>
-    <div id="excursionistes"/>
 </body>
 </html>

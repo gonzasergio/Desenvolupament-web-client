@@ -1,4 +1,3 @@
-<?php include 'BBDD.php'?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,34 +6,23 @@
     <title>act5</title>
 </head>
 <body>
-    <script>
-        $(document).ready(function(){
-            emails($("#emails"));
-            imprimirExcursionistas($("#t1"));
-            $("#emails").change(function(){
-                $('#t1 tbody').remove();
-                let email = $("#emails").children("option:selected").val();
-                imprimirExcursionistasXEmail($("#t1"), email);
-            });
+<script>
+    $(document).ready(function(){
+        emails($("#emails"));
+        $("#emails").change(function(){
+            let email = $(this).children("option:selected").val();
+            $('#excursionistes').empty();
+            excursionistes('email', email, $("#excursionistes"));
         });
-    </script>
-
-    <form>
-        <select id="emails">
-            <option>Select</option>
-        </select>
-    </form>
-
-    <table id="t1">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>NOM</th>
-            <th>EMAIL</th>
-            <th>EDAT</th>
-            <th>NIVELL</th>
-        </tr>
-        </thead>
-    </table>
+    })
+</script>
+<form>
+    <select id="emails">
+        <option>Select</option>
+    </select>
+    <select id="excursionistes">
+        <option>Select</option>
+    </select>
+</form>
 </body>
 </html>
