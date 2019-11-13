@@ -63,19 +63,3 @@ function excursionistes(comparador, experiencia, selector) {
     xhttp.open('GET', 'act1B.php?'+comparador+'="'+experiencia+'"');
     xhttp.send();
 }
-
-function emails(selector) {
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let emails = JSON.parse(this.responseText);
-            for (email in emails) {
-                let correu = emails[email].email;
-                let option = $("<option/>", {text:correu});
-                selector.append(option);
-            }
-        }
-    };
-    xhttp.open("GET", "act1B.php");
-    xhttp.send();
-}
