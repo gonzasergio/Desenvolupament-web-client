@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cards</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="cardsModels" class="container"/>
+
+<script>
+    $(document).ready(function(){
+        function loadExcursionistas() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var excursionistas = JSON.parse(this.responseText);
+                    var i=0;
+                    for (excursionista in excursionistas) {
+                        if(i%2==0){
+                            var rowDIV = $("<div/>",{class:"row",});
+                            $("#cardsModels").append(rowDIV);
+                        }
+                        i++;
+                        var nom = excursionistas[excursionista].nom;
+                        var email = excursionistas[excursionista].email;
+                        var edat = "Edat: " + excursionistas[excursionista].edat;
+                        var nivell = "Nivell: " + excursionistas[excursionista].nivell;
+                        var colDIV = $("<div/>",{class:"col-sm-6"});
+                        var cardDIV = $("<div/>", {class:"card"});
+                        var cardBody = $("<div/>",{class:"card-body"});
+                        var cardH4 = $("<h4/>",{class:"card-title", text:nom});
+                        var cardEmail = $("<p/>",{class:"card-text", text:email});
+                        var cardNivell = $("<p/>",{class:"card-text", text:edat});
+                        var cardExp = $("<p/>",{class:"card-text", text:nivell});
+                        cardBody.append(cardH4, cardEmail, cardNivell, cardExp);
+                        cardDIV.append(cardBody);
+                        //var br = $("<br/>");
+                        colDIV.append(cardDIV);
+                        rowDIV.append(colDIV);
+                    }
+                }
+            };
+            xhttp.open("GET", "excursionistas.php", true);
+            xhttp.send();
+        }
+        loadExcursionistas();
+    });
+</script>
+</body>
+</html>

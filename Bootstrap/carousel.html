@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <title>Carousel</title>
+</head>
+<body>
+<div class="container">
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators"></ol>
+        <div class="carousel-inner"></div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        function loadFotos() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var fotos = JSON.parse(this.responseText);
+                    for (var i=2; i<fotos.length; i++) {
+                        var num = i-2;
+                        // Afegir LIs
+                        var nouLI = $("<li/>");
+                        nouLI.attr("data-target","#carousel");
+                        nouLI.attr("data-slide-to",num);
+                        nouLI.addClass("bg-primary");
+                        if(i==2){
+                            nouLI.addClass("active");
+                        }
+                        $("#carousel").children("ol").append(nouLI);
+                        // Afegir DIVs
+                        var nouDIV = $("<div/>");
+                        nouDIV.addClass("carousel-item");
+                        if(i==2){
+                            nouDIV.addClass("active");
+                        }
+                        var foto = "img/"+fotos[i];
+                        var nouIMG = $("<img/>",{src:foto, alt:foto});
+                        nouIMG.addClass("d-block w-100");
+                        nouDIV.append(nouIMG);
+                        $("#carousel").children("div").append(nouDIV);
+                    }
+                }
+            };
+            xhttp.open("GET", "fotos.php", true);
+            xhttp.send();
+        }
+        loadFotos();
+    });
+</script>
+</body>
+</html>
