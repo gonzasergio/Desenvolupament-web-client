@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Prova DataTables</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready( function () {
+            $('#table_id').DataTable();
+        });
+    </script>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <table id="table_id" class="display" style="width: 100%">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>1r Apellido</th>
+                        <th>2o Apellido</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Sergio</td>
+                        <td>Gonzalez</td>
+                        <td>Vallespir</td>
+                    </tr>
+                    <tr>
+                        <td>Josep</td>
+                        <td>Oliver</td>
+                        <td>Sanso</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
