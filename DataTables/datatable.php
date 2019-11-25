@@ -38,7 +38,16 @@
                     {title: "Nivell", data:'nivell'}
                 ],
                 select: true,
-                responsive: true
+                responsive: true,
+                language: {
+                <?php if (substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == "ca") : ?>
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Catalan.json"
+                    <?php elseif (substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == "es") : ?>
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                    <?php else : ?>
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/English.json"
+                    <?php endif ?>
+                }
             });
             $("#b1").click(function() {
                 table.select.style('os');
@@ -59,6 +68,9 @@
                 table.select.items('cell');
             });
             $("#b7").click(function() {
+                table.rows().select();
+            });
+            $("#b8").click(function() {
                 table.rows('.selected').deselect();
                 table.columns('.selected').deselect();
                 table.cells('.selected').deselect();
@@ -67,13 +79,14 @@
     </script>
 
     <div class="container-fluid">
-        <button id="b1" class="btn-primary">OS</button>
-        <button id="b2" class="btn-primary">SINGLE</button>
-        <button id="b3" class="btn-primary">MULTI</button>
-        <button id="b4" class="btn-primary">ROWS</button>
-        <button id="b5" class="btn-primary">COLS</button>
-        <button id="b6" class="btn-primary">CELLS</button>
-        <button id="b7" class="btn-primary">DESELECT ALL</button>
+        <button id="b1" class="btn btn-primary">OS</button>
+        <button id="b2" class="btn btn-primary">SINGLE</button>
+        <button id="b3" class="btn btn-primary">MULTI</button>
+        <button id="b4" class="btn btn-primary">ROWS</button>
+        <button id="b5" class="btn btn-primary">COLS</button>
+        <button id="b6" class="btn btn-primary">CELLS</button>
+        <button id="b7" class="btn btn-primary">SELECT ALL</button>
+        <button id="b8" class="btn btn-primary">DESELECT ALL</button>
         <hr>
         <div class="row">
             <div class="col">
