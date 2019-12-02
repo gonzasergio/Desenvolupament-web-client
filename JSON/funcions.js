@@ -23,8 +23,8 @@ function imprimirExcursionistas(selector) {
                 newTR.append(newTD);
                 newTB.append(newTR);
                 selector.append(newTB);
-            };
-        };
+            }
+        }
     };
     xhttp.open("GET", "act1B.php");
     xhttp.send();

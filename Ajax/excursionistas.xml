@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excursionistas>
+    <excursionista name = "01">
+        <id>01</id>
+        <name>Sergio</name>
+        <nivell>5</nivell>
+    </excursionista>
+
+    <excursionista name = "02">
+        <id>02</id>
+        <name>Josep</name>
+        <nivell>4</nivell>
+    </excursionista>
+
+    <excursionista name = "03">
+        <id>03</id>
+        <name>Joan</name>
+        <nivell>3</nivell>
+    </excursionista>
+
+</excursionistas>

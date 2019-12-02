@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>XML</title>
+</head>
+<body>
+<script>
+    $(document).ready(function(){
+        $("#excursionistas").change(function(){
+            var selectedEx = $(this).children("option:selected").val();
+            loadXMLDoc(selectedEx);
+        });
+    });
+</script>
+
+<select id="excursionistas">
+    <option>select</option>
+    <option>01</option>
+    <option>02</option>
+    <option>03</option>
+</select>
+<ul id="lista"></ul>
+
+<script>
+    function loadXMLDoc(ex) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                load(this, ex);
+            }
+        };
+        xmlhttp.open("GET", "excursionistas.xml", true);
+        xmlhttp.send();
+    }
+    function load(xml, ex) {
+        var xmlDoc = xml.responseXML;
+        var x = xmlDoc.getElementsByName(ex);
+        console.log(x.length);
+        var table = "<li>" +
+            x[0].getElementsByTagName("id")[0].childNodes[0].nodeValue +
+            ", " +
+            x[0].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+            ", " +
+            x[0].getElementsByTagName("nivell")[0].childNodes[0].nodeValue +
+            "</li>";
+        document.getElementById("lista").innerHTML = table;
+    }
+</script>
+
+</body>
+</html>
