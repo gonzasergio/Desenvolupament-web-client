@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.bootstrap4.min.css">
 
+    <script src="Stuk-jszip-3109282/dist/jszip.js"></script>
+    <script src="Stuk-jszip-3109282/vendor/FileSaver.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -39,6 +41,7 @@
                     type:"GET"
                 },
                 columns:  [
+                    {title: "ID", data:'id'},
                     {title: "Nombre complet", data:'nom'},
                     {title: "Email", data:'email'},
                     {title: "Edat", data:'edat'},
@@ -101,28 +104,87 @@
                 table.cells('.selected').deselect();
             });
             $("#b9").click(function() {
-                table.column(2).search( '19' ).draw();
+                table.column(3).search( '19' ).draw();
             });
+            $("#bu10").click(function() {
+                $("#idc").val('');
+                $("#nomc").val('');
+                $("#email").val('');
+                $("#edat").val('');
+                $("#nivell").val('');
+                $("#modalEdita").modal();
+            });
+            $("#bu11").click(function() {
+                let seleccio = table.rows( { selected: true } );
+                let posicio = table.row(seleccio).index();
+                let id = table.cell(posicio,0).data();
+                loadExcursionista(id);
+            });
+            $("#bu12").click(function() {
+                let seleccio = table.rows( { selected: true } );
+                let posicio = table.row(seleccio).index();
+                let id = table.cell(posicio,0).data();
+                window.location.href = 'elimina.php?id=' + id;
+            });
+            $('#bu13').click(function () {
+                var zip = new JSZip();
+                var img = zip.folder("images");
+                img.file("jasito.jpg", "R0lGODdhBQAFAIACAAAAAP/eACwAAAAABQAFAAACCIwPkWerClIBADs=", {base64: true});
+                zip.generateAsync({type:"blob"})
+                    .then(function(content) {
+                        // see FileSaver.js
+                        saveAs(content, "example.zip");
+                    });
+            })
+            $("#bu14").click(function() {
+                var docDefinition = {
+                    content: [{text: "hello world"}],
+                    styles: {
+                        header: {
+                            fontSize: 12,
+                            bold: true
+                        }
+                    }
+                }
+                pdfMake.createPdf(docDefinition).download();
+            });
+
+            function loadExcursionista(idExcursionista) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var item = JSON.parse(this.responseText)[0];
+                        $("#idc").val(item.id);
+                        $("#nomc").val(item.nom);
+                        $("#email").val(item.email);
+                        $("#edat").val(item.edat);
+                        $("#nivell").val(item.nivell);
+                        $("#modalEdita").modal();
+                    }
+                };
+                xhttp.open("GET", "excursionistas.php?id="+idExcursionista, true);
+                xhttp.send();
+            }
 
             table.on('draw', function() {
                 table.rows().every( function () {
                     let data = this.data();
                     let row = $(this.node());
                     if (data['nivell'] == 1) {
-                        row.find('td:eq(3)').addClass('text-danger font-weight-bold');
-                    };
+                        row.find('td:eq(4)').addClass('text-danger font-weight-bold');
+                    }
                     if (data['nivell'] == 2) {
-                        row.find('td:eq(3)').addClass('text-warning font-weight-bold');
-                    };
+                        row.find('td:eq(4)').addClass('text-warning font-weight-bold');
+                    }
                     if (data['nivell'] == 3) {
-                        row.find('td:eq(3)').addClass('text-secondary font-weight-bold');
-                    };
+                        row.find('td:eq(4)').addClass('text-secondary font-weight-bold');
+                    }
                     if (data['nivell'] == 4) {
-                        row.find('td:eq(3)').addClass('text-info font-weight-bold');
-                    };
+                        row.find('td:eq(4)').addClass('text-info font-weight-bold');
+                    }
                     if (data['nivell'] == 5) {
-                        row.find('td:eq(3)').addClass('text-success font-weight-bold');
-                    };
+                        row.find('td:eq(4)').addClass('text-success font-weight-bold');
+                    }
                 });
             });
         });
@@ -138,10 +200,68 @@
         <button id="b7" class="btn btn-primary">SELECT ALL</button>
         <button id="b8" class="btn btn-primary">DESELECT ALL</button>
         <button id="b9" class="btn btn-primary">AGE: 19</button>
+        <button id="bu10" class="btn btn-primary">INSERTAR</button>
+        <button id="bu11" class="btn btn-primary">EDITAR</button>
+        <button id="bu12" class="btn btn-primary">ELIMINAR</button>
+        <button id="bu13" class="btn btn-primary">ZIP</button>
+        <button id="bu14" class="btn btn-primary">PDF</button>
         <hr>
         <div class="row">
             <div class="col">
                 <table id="example" class="table table-striped table-bordered w-100"/>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalEdita" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <!-- header modal -->
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edita Excursionista</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- body modal -->
+
+                <div class="modal-body">
+                    <form role="form" name="formEdita" action="edita.php" method="get">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Id:</label>
+                                <input id="idc" type="text" class="form-control" placeholder="Id Excursionista" name="id">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Nom:</label>
+                                <input id="nomc" type="text"class="form-control" placeholder="Nom Excursionista" name="nom">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Email:</label>
+                                <input id="email" type="text"class="form-control" placeholder="Email Excursionista" name="email">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Edat:</label>
+                                <input id="edat" type="text"class="form-control" placeholder="Edat Excursionista" name="edat">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Nivell:</label>
+                                <input id="nivell" type="text"class="form-control" placeholder="Nivell Excursionista" name="nivell">
+                            </div>
+                        </div>
+                        <div class="modal-footer mt-3">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                            <input id="bSubmit" type="submit" class="btn btn-primary" value="Guardar"/>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
