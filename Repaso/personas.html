@@ -369,11 +369,6 @@
         personas[3]= new Persona("Joan Barceló", "jbarcelo@gmail.com", 19, 3);
 
         imprimeMatriz();
-        $.getJSON("excursionistas.json", function(result){
-            $.each(result, function(i, field){
-                $("#json").append(field + " ");
-            });
-        });
     </script>
 </body>
 </html>
