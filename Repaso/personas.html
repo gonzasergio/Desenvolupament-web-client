@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="personas.js"></script>
 
@@ -18,6 +18,10 @@
         $(document).ready(function () {
             $("#volver").click(function () {
                 window.location.href = "formulario.html";
+            });
+
+            $("#imprime").click(function () {
+                window.location.href = "json.html";
             });
 
             $("#insertIn").click(function () {
@@ -105,6 +109,37 @@
                 });
                 imprimeMatriz();
             });
+
+            $("#cercaExp").click(function () {
+                let exp = 2/*$('#experiencia').val()*/;
+                let llista = $("#llista");
+                let table = $("#table tbody");
+                llista.empty();
+                table.empty();
+                for(let i = 0; i < personas.length; i++){
+                    if (personas[i].getExp() == exp){
+                        let info = personas[i].getNom() + ", " + personas[i].getEmail() + ", " +personas[i].getEdad() + ", " + personas[i].getExp();
+                        let li = $('<li/>', {id:i, class:'list-group-item', text:info, onclick:'edita('+i+')'});
+                        llista.append(li);
+
+                        let tr = $("<tr/>", {id:i, onclick:'edita('+i+')'});
+                        let td = "<td>" + personas[i].getNom() + "</td>";
+                        tr.append(td);
+                        td = "<td>" + personas[i].getEmail() + "</td>";
+                        tr.append(td);
+                        td = "<td class='text-center'>" + personas[i].getEdad() + "</td>";
+                        tr.append(td);
+                        td = "<td class='text-center'>" + personas[i].getExp() + "</td>";
+                        tr.append(td);
+
+                        table.append(tr);
+                    }
+                }
+            });
+
+            $("#eliminaFiltre").click(function () {
+                imprimeMatriz();
+            });
         });
 
         function edita(id) {
@@ -142,7 +177,8 @@
     </script>
     <main>
         <div class="container-fluid">
-            <button class="btn btn-success rounded my-4" type="button" id="volver">Volver</button>
+            <button class="btn btn-primary rounded my-4" type="button" id="volver">Volver</button>
+            <button class="btn btn-primary rounded my-4" type="button" id="imprime">Imprimir JSON</button>
             <ul id="llista" class="list-group mb-4">
 
             </ul>
@@ -165,6 +201,8 @@
             <button class="btn btn-warning rounded mt-2" type="button" id="ordreDesc">DESC Edad</button>
             <button class="btn btn-warning rounded mt-2" type="button" id="ordreNom">Sort Nom</button>
             <button class="btn btn-warning rounded mt-2" type="button" id="ordreNomReverse">Sort Nom Reverse</button>
+            <button class="btn btn-info rounded mt-2" type="button" id="cercaExp">Cerca Exp</button>
+            <button class="btn btn-info rounded mt-2" type="button" id="eliminaFiltre">Eliminar Filtre</button>
             <p class="h5 text-muted my-3">Per canviar els valors d'un objecte has de seleccionar el que vols editar pitjant damunt</p>
             <div id="modalInsertIn" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -331,7 +369,11 @@
         personas[3]= new Persona("Joan Barceló", "jbarcelo@gmail.com", 19, 3);
 
         imprimeMatriz();
-
+        $.getJSON("excursionistas.json", function(result){
+            $.each(result, function(i, field){
+                $("#json").append(field + " ");
+            });
+        });
     </script>
 </body>
 </html>

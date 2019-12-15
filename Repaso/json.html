@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <title>json</title>
+</head>
+<body>
+<p id="demo"></p>
+<button class="btn btn-primary rounded mt-2" type="button" id="volver">Volver</button>
+
+    <script>
+        let employes = $.ajax ({
+            url: 'employes.json'
+        });
+
+        $(document).ready(function () {
+            $("#demo").text(JSON.stringify(employes.responseJSON));
+            $("#volver").click(function () {
+                window.location.href = "personas.html";
+            });
+        });
+    </script>
+</body>
+</html>
