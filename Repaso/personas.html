@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="personas.js"></script>
+
+    <title>Personas</title>
+</head>
+<body>
+    <script>
+        $(document).ready(function () {
+            $("#volver").click(function () {
+                window.location.href = "formulario.html";
+            });
+
+            $("#insertIn").click(function () {
+                $("#nomIn").val("");
+                $("#emailIn").val("");
+                $("#edadIn").val("");
+                $("#expIn").val("");
+                $("#modalInsertIn").modal();
+            });
+
+            $("#insertFi").click(function () {
+                $("#nomFi").val("");
+                $("#emailFi").val("");
+                $("#edadFi").val("");
+                $("#expFi").val("");
+                $("#modalInsertFi").modal();
+            });
+
+            $("#submitInsertIn").click(function () {
+                let nom = $("#nomIn").val();
+                let email = $("#emailIn").val();
+                let edad = $("#edadIn").val();
+                let exp = $("#expIn").val();
+                if (nom != "" && email != "" && edad != "" && exp != ""){
+                    let persona = new Persona(nom, email, edad, exp);
+                    personas.unshift(persona);
+                    imprimeMatriz();
+                    $("#modalInsertIn").modal('hide');
+                }
+            });
+
+            $("#submitInsertFi").click(function () {
+                let nom = $("#nomFi").val();
+                let email = $("#emailFi").val();
+                let edad = $("#edadFi").val();
+                let exp = $("#expFi").val();
+                if (nom != "" && email != "" && edad != "" && exp != ""){
+                    let persona = new Persona(nom, email, edad, exp);
+                    personas.push(persona);
+                    imprimeMatriz();
+                    $("#modalInsertFi").modal('hide');
+                }
+            });
+
+            $("#eliminarIn").click(function () {
+                personas.shift();
+                imprimeMatriz();
+            });
+
+            $("#eliminarFi").click(function () {
+                personas.pop();
+                imprimeMatriz();
+            });
+
+            $("#submitEdita").click(function () {
+                personas[$("#id").val()].setNom($("#nomEdita").val());
+                personas[$("#id").val()].setEmail($("#emailEdita").val());
+                personas[$("#id").val()].setEdad($("#edadEdita").val());
+                personas[$("#id").val()].setExp($("#expEdita").val());
+                $("#modalEdita").modal('hide');
+                imprimeMatriz();
+            });
+
+            $("#ordreAsc").click(function () {
+
+                personas.sort(function(a,b){ return (a.edad<b.edad)?-1:1;});
+                imprimeMatriz();
+            });
+
+            $("#ordreDesc").click(function () {
+                personas.sort(function(a,b){ return (a.edad>b.edad)?-1:1;});
+                imprimeMatriz();
+            });
+
+            $("#ordreNom").click(function () {
+                personas.sort(function (a,b) {
+                    return (a.nom<b.nom)?-1:1;
+                });
+                imprimeMatriz();
+            });
+
+            $("#ordreNomReverse").click(function () {
+                personas.sort(function (a,b) {
+                    return (a.nom>b.nom)?-1:1;
+                });
+                imprimeMatriz();
+            });
+        });
+
+        function edita(id) {
+            $("#id").val(id);
+            $("#nomEdita").val(personas[id].getNom());
+            $("#emailEdita").val(personas[id].getEmail());
+            $("#edadEdita").val(personas[id].getEdad());
+            $("#expEdita").val(personas[id].getExp());
+            $("#modalEdita").modal();
+        }
+
+        function imprimeMatriz(){
+            let llista = $("#llista");
+            let table = $("#table tbody");
+            $("#llista").empty();
+            $("#table tbody").empty();
+            for(let i = 0; i < personas.length; i++){
+                let info = personas[i].getNom() + ", " + personas[i].getEmail() + ", " +personas[i].getEdad() + ", " + personas[i].getExp();
+                let li = $('<li/>', {id:i, class:'list-group-item', text:info, onclick:'edita('+i+')'});
+                llista.append(li);
+
+                let tr = $("<tr/>", {id:i, onclick:'edita('+i+')'});
+                let td = "<td>" + personas[i].getNom() + "</td>";
+                tr.append(td);
+                td = "<td>" + personas[i].getEmail() + "</td>";
+                tr.append(td);
+                td = "<td class='text-center'>" + personas[i].getEdad() + "</td>";
+                tr.append(td);
+                td = "<td class='text-center'>" + personas[i].getExp() + "</td>";
+                tr.append(td);
+
+                table.append(tr);
+            }
+        }
+    </script>
+    <main>
+        <div class="container-fluid">
+            <button class="btn btn-success rounded my-4" type="button" id="volver">Volver</button>
+            <ul id="llista" class="list-group mb-4">
+
+            </ul>
+            <table id="table" class="table">
+                <thead class="thead-dark text-center">
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Edad</th>
+                    <th>Exp</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <button class="btn btn-success rounded mt-2" type="button" id="insertIn">Insertar Inici</button>
+            <button class="btn btn-success rounded mt-2" type="button" id="insertFi">Insertar Final</button>
+            <button class="btn btn-danger rounded mt-2" type="button" id="eliminarIn">Eliminar Inici</button>
+            <button class="btn btn-danger rounded mt-2" type="button" id="eliminarFi">Eliminar Final</button>
+            <button class="btn btn-warning rounded mt-2" type="button" id="ordreAsc">ASC Edad</button>
+            <button class="btn btn-warning rounded mt-2" type="button" id="ordreDesc">DESC Edad</button>
+            <button class="btn btn-warning rounded mt-2" type="button" id="ordreNom">Sort Nom</button>
+            <button class="btn btn-warning rounded mt-2" type="button" id="ordreNomReverse">Sort Nom Reverse</button>
+            <p class="h5 text-muted my-3">Per canviar els valors d'un objecte has de seleccionar el que vols editar pitjant damunt</p>
+            <div id="modalInsertIn" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <!-- header modal -->
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Inserta Persona</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <!-- body modal -->
+
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label> Nom:</label>
+                                    <input class="form-control" type="text" id="nomIn">
+                                </div>
+                                <div class="form-group">
+                                    <label> Email:</label>
+                                    <input class="form-control" type="text" id="emailIn">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label> Edad:</label>
+                                            <input class="form-control" type="text" id="edadIn">
+                                        </div>
+                                        <div class="col">
+                                            <label> Experiencia:</label>
+                                            <input class="form-control" type="text" id="expIn">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- footer modal -->
+
+                        <div class="modal-footer">
+                            <button id="submitInsertIn" type="button" class="btn btn-primary">Insertar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="modalInsertFi" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <!-- header modal -->
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Inserta Persona</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <!-- body modal -->
+
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label> Nom:</label>
+                                    <input class="form-control" type="text" id="nomFi">
+                                </div>
+                                <div class="form-group">
+                                    <label> Email:</label>
+                                    <input class="form-control" type="text" id="emailFi">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label> Edad:</label>
+                                            <input class="form-control" type="text" id="edadFi">
+                                        </div>
+                                        <div class="col">
+                                            <label> Experiencia:</label>
+                                            <input class="form-control" type="text" id="expFi">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- footer modal -->
+
+                        <div class="modal-footer">
+                            <button id="submitInsertFi" type="button" class="btn btn-primary">Insertar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="modalEdita" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <!-- header modal -->
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Edita Persona</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <!-- body modal -->
+
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label> ID:</label>
+                                            <input class="form-control" type="text" readonly="readonly" id="id">
+                                        </div>
+                                        <div class="col">
+                                            <label> Nom:</label>
+                                            <input class="form-control" type="text" id="nomEdita">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label> Email:</label>
+                                    <input class="form-control" type="text" id="emailEdita">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label> Edad:</label>
+                                            <input class="form-control" type="text" id="edadEdita">
+                                        </div>
+                                        <div class="col">
+                                            <label> Experiencia:</label>
+                                            <input class="form-control" type="text" id="expEdita">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- footer modal -->
+
+                        <div class="modal-footer">
+                            <button id="submitEdita" type="button" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        let personas = [];
+        personas[0]= new Persona("Sergio", "sgv721@gmail.com", 18, 4);
+        personas[1]= new Persona("Josep", "joliver@gmail.com", 18, 5);
+        personas[2]= new Persona("Joan Andreu", "jandreu@gmail.com", 19, 2);
+        personas[3]= new Persona("Joan Barceló", "jbarcelo@gmail.com", 19, 3);
+
+        imprimeMatriz();
+
+    </script>
+</body>
+</html>
