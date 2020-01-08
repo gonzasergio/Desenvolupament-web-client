@@ -1,0 +1,165 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="parking.js"></script>
+<style>
+#taula {width:50%;float:left;}
+#historial {height: 400px;width:50%;float:right; background-color:yellow;}
+</style>
+</head>
+<script>
+    $(document).ready(function () {
+        let parking = [];
+
+        $("#btn1").click(function () {
+            let matricula =  $("#t1").val();
+            let casilla = $("#s1").children("option:selected").val();
+            let historial =  $("#historial");
+
+            if (matricula != ""){
+                let coche = new Parking(casilla, matricula);
+                parking.push(coche);
+
+                imprimeParking(parking);
+
+                let p = $("<p>", {text:'Ha aparcado en la plaza ' + casilla + ' el coche con la matricula ' + matricula})
+                historial.append(p);
+            }
+        });
+
+        $("#btn2").click(function () {
+            let casilla = $("#s1").children("option:selected").val();
+            let historial =  $("#historial");
+
+            for (let i = 0; i < parking.length; i++) {
+                if (parking[i].getCasilla() == casilla){
+                    parking.splice(i);
+                }
+            }
+
+            let p = $("<p>", {text:'La plaza '+ casilla + ' vuelve a estar libre'})
+            historial.append(p);
+
+            imprimeParking(parking);
+        });
+
+        $("#btn3").click(function () {
+            alert('Hay '+parking.length+' coches aparcados');
+        });
+
+        imprimeParking(parking);
+    });
+
+    function imprimeParking(parking) {
+        for (let i = 0; i < 3; i++){
+            $("#A"+i).empty();
+        }
+        for (let i = 0; i < 3; i++){
+            $("#B"+i).empty();
+        }
+        for (let i = 0; i < 3; i++){
+            $("#C"+i).empty();
+        }
+        imprimeCoches(parking);
+        imprimeResto();
+    }
+    
+    function imprimeCoches(parking) {
+        for (let i = 0; i < parking.length; i++) {
+            let casilla = parking[i].getCasilla();
+            let matricula = parking[i].getMatricula();
+            let img = "<img src='car.png'>";
+            let br = $("<br/>");
+            $("#"+casilla).text(matricula);
+            $("#"+casilla).prepend(br);
+            $("#"+casilla).prepend(img);
+        }
+    }
+    
+    function imprimeResto() {
+        for (let i = 0; i < 3; i++){
+            if ($("#A"+i).text() == ""){
+                let img = "<img src='empty.png'>";
+                $("#A"+i).append(img);
+            }
+        }
+        for (let i = 0; i < 3; i++){
+            if ($("#B"+i).text() == ""){
+                let img = "<img src='empty.png'>";
+                $("#B"+i).append(img);
+            }
+        }
+        for (let i = 0; i < 3; i++){
+            if ($("#C"+i).text() == ""){
+                let img = "<img src='empty.png'>";
+                $("#C"+i).append(img);
+            }
+        }
+    }
+</script>
+<body>
+    <h1>PARKING</h1>
+    <form action="#" style="background-color:#AAAAAA;">
+        <fieldset>
+            <legend>Parking Admininstration</legend>
+            <b>PLATE NUMBER:</b> <input type="text" id="t1" value="" size="5" />
+            <b>PARKING PLACE:</b>
+            <select id="s1">
+                <option>A0</option>
+                <option>A1</option>
+                <option>A2</option>
+                <option>B0</option>
+                <option>B1</option>
+                <option>B2</option>
+                <option>C0</option>
+                <option>C1</option>
+                <option>C2</option>
+            </select>
+            <button id="btn1" >PARK IN</button>
+            <button id="btn2" >PARK OUT</button>
+            <button id="btn3" >NUM CARS</button>
+            <button id="btn4" >SORT</button>
+        </fieldset>
+    </form>
+    <hr/>
+    <div id="taula">
+        <table id="tabla" style="width: 100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center">
+                <tr>
+                    <th>0</th>
+                    <td id="A0"></td>
+                    <td id="B0"></td>
+                    <td id="C0"></td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td id="A1"></td>
+                    <td id="B1"></td>
+                    <td id="C1"></td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td id="A2"></td>
+                    <td id="B2"></td>
+                    <td id="C2"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="historial">
+    <h1>Historial</h1>
+    </div>
+</body>
+</html>

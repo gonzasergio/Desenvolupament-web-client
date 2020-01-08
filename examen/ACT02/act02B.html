@@ -1,0 +1,37 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="funcions.js"></script>
+</head>
+<body>
+<script>
+    $(document).ready(function(){
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let parkings = JSON.parse(this.responseText);
+                for (parking in parkings) {
+                    let entrada = parkings[parking].timestamp_in;
+                    let salida = parkings[parking].timestamp_out;
+                    let matricula = parkings[parking].plate_number;
+                    let precio  = parkings[parking].price;
+                    let minutos = parkings[parking].minutes;
+                    let newLI;
+                    if (precio < 5.10){
+                        newLI = $('<li/>',{text:entrada + ", " + salida + ", " + matricula + ", " + precio + ", " + minutos, style:"background-color: red"});
+                    } else {
+                        newLI = $("<li/>",{text:entrada + ", " + salida + ", " + matricula + ", " + precio + ", " + minutos});
+                    }
+
+                    $("#l1").append(newLI);
+                }
+            }
+        };
+        xhttp.open("GET", "../parking.json");
+        xhttp.send();
+    })
+</script>
+
+<ul id="l1"/>
+</body>
+</html>

@@ -1,0 +1,128 @@
+[
+  {
+    "timestamp_in": "Mon Dec 24 2018 10:33:30 GMT+0100 (Central European Standard Time)",
+    "timestamp_out": "Mon Dec 24 2018 12:43:12 GMT+0100 (Central European Standard Time)",
+    "plate_number": "IB6391CL",
+    "price":"5.47",
+    "minutes":"126"
+  },
+  {
+    "timestamp_in": "Sat Jan 04 2020 15:13:23 GMT+0100 (Central European Standard Time)",
+    "timestamp_out": "Sat Jan 04 2020 16:11:25 GMT+0100 (Central European Standard Time)",
+    "plate_number": "IB4421FT",
+    "price":"2.90",
+    "minutes":"58"
+  },
+  {
+    "timestamp_in": "Mon Jul 22 2019 08:03:17 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Mon Jul 22 2019 12:41:15 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB1822FG",
+    "price":"13.85",
+    "minutes":"277"
+  },
+  {
+    "timestamp_in": "Sat Aug 17 2019 11:10:27 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Sat Aug 17 2019 12:15:25 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB",
+    "price":"3.2",
+    "minutes":"64"
+  },
+  {
+    "timestamp_in": "Sat Sep 14 2019 22:12:05 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Sat Sep 14 2019 22:44:15 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB2391CL",
+    "price":"1.6",
+    "minutes":"32"
+  },
+  {
+    "timestamp_in": "Sat Apr 27 2019 18:02:50 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Sat Apr 27 2019 18:33:12 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB7208GS",
+    "price":"1.5",
+    "minutes":"30"
+  },
+  {
+    "timestamp_in": "Sun Jun 02 2019 10:12:05 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Sun Jun 02 2019 14:13:02 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB1186HJ",
+    "price":"12.0",
+    "minutes":"240"
+  },
+  {
+    "timestamp_in": "Thu Dec 12 2019 14:02:25 GMT+0100 (Central European Standard Time)",
+    "timestamp_out": "Thu Dec 12 2019 19:32:26 GMT+0100 (Central European Standard Time)",
+    "plate_number": "IB6294FG",
+    "price":"16.5",
+    "minutes":"330"
+  },
+  {
+    "timestamp_in": "Tue Feb 19 2019 04:12:35 GMT+0100 (Central European Standard Time)",
+    "timestamp_out": "Tue Feb 19 2019 05:24:06 GMT+0100 (Central European Standard Time)",
+    "plate_number": "IB1936DS",
+    "price":"3.55",
+    "minutes":"71"
+  },
+  {
+    "timestamp_in": "Tue Apr 16 2019 11:02:51 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Tue Apr 16 2019 12:42:26 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB0065KK",
+    "price":"4.95",
+    "minutes":"99"
+  },
+  {
+    "timestamp_in": "Thu Jun 06 2019 08:12:01 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Thu Jun 06 2019 14:29:36 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB2917KA",
+    "price":"18.85",
+    "minutes":"377"
+  },
+  {
+    "timestamp_in": "Fri Aug 16 2019 09:29:31 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Fri Aug 16 2019 12:19:26 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB02734LM",
+    "price":"8.45",
+    "minutes":"169"
+  },
+  {
+    "timestamp_in": "Fri Oct 11 2019 17:19:41 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Fri Oct 11 2019 20:22:56 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB0174GH",
+    "price":"9.15",
+    "minutes":"183"
+  },
+  {
+    "timestamp_in": "Thu Nov 07 2019 07:11:11 GMT+0100 (Central European Standard Time)",
+    "timestamp_out": "Thu Nov 07 2019 13:23:51 GMT+0100 (Central European Standard Time)",
+    "plate_number": "IB0163DS",
+    "price":"18.6",
+    "minutes":"372"
+  },
+  {
+    "timestamp_in": "Sat Jul 27 2019 13:33:55 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Sat Jul 27 2019 15:44:32 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB0012TY",
+    "price":"6.5",
+    "minutes":"130"
+  },
+  {
+    "timestamp_in": "Tue Apr 02 2019 18:23:15 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Tue Apr 02 2019 21:14:37 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB0768AX",
+    "price":"8.55",
+    "minutes":"171"
+  },
+  {
+    "timestamp_in": "Fri Jul 26 2019 21:05:45 GMT+0200 (Central European Summer Time)",
+    "timestamp_out": "Fri Jul 26 2019 23:44:30 GMT+0200 (Central European Summer Time)",
+    "plate_number": "IB0184BZ",
+    "price":"7.9",
+    "minutes":"158"
+  },
+  {
+    "timestamp_in": "Fri Dec 07 2018 21:17:35 GMT+0100 (Central European Standard Time)",
+    "timestamp_out": "ri Dec 07 2018 23:42:17 GMT+0100 (Central European Standard Time)",
+    "plate_number": "IB6620CL",
+    "price":"7.2",
+    "minutes":"144"
+  }
+]

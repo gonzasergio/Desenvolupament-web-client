@@ -250,13 +250,13 @@ zip.file("smile.gif", fs.readFileSync("smile.gif"));
 zip.file("Xmas.txt", "Ho ho ho !", {date : new Date("December 25, 2007 00:00:01")});
 zip.file("folder/file.txt", "file in folder");
 
-zip.file("animals.txt", "dog,platypus\n").file("people.txt", "james,sebastian\n");
+zip.file(employes.json, "dog,platypus\n").file("people.txt", "james,sebastian\n");
 
 // result:
 // - Hello.txt
 // - smile.gif
 // - Xmas.txt
-// - animals.txt
+employes.json
 // - people.txt
 // - folder/
 // - folder/file.txt
