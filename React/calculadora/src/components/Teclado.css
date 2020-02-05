@@ -1,0 +1,22 @@
+.calculadora {
+    height: 520px;
+    width: 350px;
+    margin: 0 auto;
+}
+
+.result-display {
+    height: 200px;
+}
+
+.col {
+    padding: 0;
+}
+
+.botones {
+    height: 80px;
+}
+
+.btn {
+    font-size: 30px;
+    border-radius: 0;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Act1</title>
+</head>
+<body>
+<div>
+    <svg width="1200" height="600" id="dibuix">
+        <rect width="1200" height="600" style="fill:skyblue"/>
+    </svg>
+</div>
+<script>
+
+    let cercles = [
+        ['200','200','5'],
+        ['300','300','10'],
+        ['400','400','15'],
+        ['500','500','20'],
+        ['200','500','25'],
+        ['500','200','30'],
+        ['300','400','35'],
+        ['400','200','40'],
+        ['800','200','45'],
+        ['650','450','50'],
+        ['850','300','55']
+    ];
+
+    let svg = document.getElementById('dibuix');
+
+    function createCircles(){
+
+        for(let i=0; i<cercles.length; i++){
+
+            let circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
+            circle.setAttributeNS(null, 'cx', cercles[i][0]);
+            circle.setAttributeNS(null, 'cy', cercles[i][1]);
+            circle.setAttributeNS(null, 'r', cercles[i][2]);
+            circle.setAttributeNS(null, 'fill', "#DF013A");
+
+            svg.append(circle);
+
+        }
+    }
+
+    $(document).ready(function(){
+        createCircles();
+    });
+
+</script>
+</body>
+</html>

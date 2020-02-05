@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Google Map - Animated Marker</h1>
+
+<div id="googleMap" style="width:90%;height:400px;margin:10px; float:left;"></div>
+
+<script>
+    var marcadores = [
+        ['39.3847', '16.9272', 'primera'],
+        ['38.8847', '16.4272', 'segunda']
+    ];
+
+    function myMap() {
+
+        var mapOptions= {
+            center:new google.maps.LatLng(39.3847,16.9272),
+            zoom:8,
+        };
+
+
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+        for (let i in marcadores){
+            var myPosition = {lat: parseFloat(marcadores[i][0]), lng: parseFloat(marcadores[i][1])};
+            console.log(marcadores[i][0], marcadores[i][1]);
+            var marker = new google.maps.Marker({position: myPosition,
+                animation:google.maps.Animation.BOUNCE, icon:'fireball.png'});
+
+            var infowindow = new google.maps.InfoWindow({
+                content:marcadores[i][2]
+            });
+
+            infowindow.open(map,marker);
+
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map,marker);
+            });
+
+            marker.setMap(map);
+        }
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCKiIqCdZGrVxx06LSbe7uG3zXOq1Cz5k&callback=myMap"></script>
+</body>
+</html>

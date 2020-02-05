@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    <title>Act1c</title>
+</head>
+<body>
+    <div class="movimiento">
+        <svg width="60" height="60">
+            <rect width="100%" height="100%" fill="green" />
+        </svg>
+    </div>
+    <script>
+        anime({
+            targets: '.movimiento',
+            translateX: [0, 250],
+            direction: 'alternate',
+            loop: true
+        });
+    </script>
+</body>
+</html>
